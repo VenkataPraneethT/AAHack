@@ -1,0 +1,57 @@
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="customerInteractionsApp">
+<head>
+	<!-- META -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+	<title>Air Asia Customer Portal</title>
+
+	<!-- SCROLLS -->
+
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		html 					{ overflow-y:scroll; }
+		body 					{ padding-top:50px; }
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" ></script>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script><!-- load angular -->
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script> -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+	<!-- load angular routes -->
+	<script type="text/javascript" src="js/vendor/loadash.js"></script> <!-- load our loadash file -->
+	<script type="text/javascript" src="js/core.js"></script> <!-- load our main application -->
+	<script type="text/javascript" src="js/controllers/customer-login.js"></script>
+	<!-- <script type="text/javascript" src="js/controllers/CustomerViewController.js"></script> -->
+
+	<!-- load our cusotmer service -->
+	<script type="text/javascript" src="js/services/customerServices.js"></script>
+
+</head>
+<body>
+	<header>
+					 <nav class="navbar navbar-default">
+					 <div class="container">
+							 <div class="navbar-header">
+									 <a class="navbar-brand" href="/"> Air Asia Customer Portal </a>
+							 </div>
+
+							 <ul class="nav navbar-nav navbar-right">
+									 <li><a href="/customerLogin"><i class="fa fa-home"></i> Customer Login </a></li>
+									 <li><a href="/customerPortal"><i class="fa fa-shield"></i> Customer Portal</a></li>
+
+							 </ul>
+					 </div>
+					 </nav>
+	</header>
+ 	<div id="main">
+			<div ng-view></div>
+	</div>
+</body>
+</html>
