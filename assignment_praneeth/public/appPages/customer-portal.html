@@ -4,10 +4,19 @@
          <div class="form-group row">
            <div class="col-md-12">
              <label for="pnr">Please Enter Your PNR:</label>
-             <input type="text" class="form-control" id="pnr" ng-model="vmLogin.customerPNR">
+             <input type="text" class="form-control" id="pnr" ng-click="vmPortal.getCustomerDetails()">
+           </div>
+           <div class="col-md-12" id="inputTypeObj">
+             <form enctype="multipart/form-data">
+               <input type="file" id="fileInput"  file-model ="vmPortal.fileObj.fileInput"></input>
+               <input type="text" id="textInput" ng-model="vmPortal.fileObj.textInput"></input>
+               <button ng-click="vmPortal.processInput()">Submit</button>
+             </form>
+
            </div>
         </div>
       </form>
+      <p>{{vmPortal.successMessage}}</p>
        <!-- <p class="text-center"  ng-if="vmRepos.loading">
          <span class="fa fa-spinner fa-spin fa-3x"></span>
        </p>

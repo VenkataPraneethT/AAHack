@@ -34,9 +34,10 @@ app.use(app.oauth.errorHandler());
 // routes ======================================================================
 
 require('./appServer/apis/customerAuth.js')(app);
-// require('./appServer/apis/customerDetails.js')(app);
+require('./appServer/apis/customerDetails.js')(app);
 // require('./appServer/apis/customerFeedback.js')(app);
-// require('./app/routes.js')(app, q, loadash);
+require('./appServer/apis/fileProcesses.js')(app);
+
 app.route('/*').get(function(req, res) {
     return res.sendFile(__dirname + '/public/index.html');
 });

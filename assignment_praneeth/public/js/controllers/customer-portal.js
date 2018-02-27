@@ -5,18 +5,34 @@ angular.module("customerInteractionsApp")
 					'$http',
 					'CustomerDetails',
           '$routeParams',
+					'InputFileDetails',
 					CustomerPortalController
 				]
-			 );
+			 )
+			 .directive('fileModel', ['$parse', function ($parse) {
+            return {
+               restrict: 'A',
+               link: function(scope, element, attrs) {
+                  var model = $parse(attrs.fileModel);
+                  var modelSetter = model.assign;
 
-		function CustomerPortalController($scope, $http, CustomerDetails,$routeParams) {
+                  element.bind('change', function(){
+                     scope.$apply(function(){
+                        modelSetter(scope, element[0].files[0]);
+                     });
+                  });
+               }
+            };
+         }]);
+
+		function CustomerPortalController($scope, $http, CustomerDetails,$routeParams, InputFileDetails) {
 		   	this.$scope = $scope;
 				this.$http = $http;
         this.CustomerDetails = CustomerDetails;
         this.$routeParams = $routeParams;
 				this.loading = true;
-        
-				this.getCustomerDetails();
+				this.InputFileDetails = InputFileDetails;
+				// this.getCustomerDetails();
 		};
 
 		CustomerPortalController.prototype = {
@@ -28,7 +44,21 @@ angular.module("customerInteractionsApp")
 		                // self.formArrayData(data);
 										// self.loading = false;
 							});
-		    }
+		    },
+				processInput:function(){
+					var self = this;
+					console.log(self.fileObj, "self.fileObj");
+					self.InputFileDetails.processFileInput(self.fileObj)
+							.success(function(data) {
+									console.log(data, "data");
+									self.successMessage = data;
+
+							})
+							.error(function(error) {
+								 console.log(error, "error");
+							});
+
+				}
 				// ,
         // loadNextSetOfRepos: function(){
         //     var self = this;

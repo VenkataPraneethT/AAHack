@@ -15,7 +15,9 @@
            </div>
         </div>
       </form>
-      
+      <div ng-if="vmLogin.isError" class="alert alert-danger">
+        Please enter valid credentials.
+      </div>
 </div>
 <style>
 

@@ -3,7 +3,8 @@
 
  var customerPortal = angular.module('customerInteractionsApp', [
      'ngRoute',
-     'customerService'
+     'customerService',
+     'inputObjService'
      // 'ui.router'
     //  'ngAnimate'
  ]);
@@ -17,24 +18,27 @@
                  .when("/customerLogin", {
                      templateUrl : "../appPages/customer-login.html",
                      controller  : "CustomerLoginController",
-                     controllerAs: "vmLogin",
-                     requireAuth: true
+                     controllerAs: "vmLogin"
+                     // ,
+                     // authorize: true
                  })
                  .when("/customerPortal", {
                      templateUrl : "../appPages/customer-portal.html",
                      controller  : "CustomerPortalController",
-                     controllerAs: "vmPortal",
-                     requireAuth: true
+                     controllerAs: "vmPortal"
+                     // ,
+                     // authorize: true
                  })
                  .when("/customerFeedback", {
                      templateUrl : "../appPages/customer-feedback.html",
                      controller  : "CustomerFeedbackController",
-                     controllerAs: "vmFeedback",
-                     requireAuth: true
+                     controllerAs: "vmFeedback"
+                     // ,
+                     // authorize: true
                  })
-                 .when("/customerDetails", {
-                     templateUrl : "../appPages/customer-details.html"
-                 })
+                 // .when("/customerDetails", {
+                 //     templateUrl : "../appPages/customer-details.html"
+                 // })
 
                  $locationProvider.html5Mode(true);
 
